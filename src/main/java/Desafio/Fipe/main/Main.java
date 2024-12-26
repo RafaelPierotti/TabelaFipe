@@ -22,6 +22,10 @@ public class Main {
     private final String URL_BASE = "https://parallelum.com.br/fipe/api/v1/";
 
     public void displayMenu(){
+
+        String url;
+        var option = " ";
+
         var menu = """
                 **** Opções ****
                 Carros
@@ -31,9 +35,11 @@ public class Main {
                 Digite uma das opções acima:
                 """;
 
-        System.out.println(menu);
-        var option = scanner.nextLine();
-        String url;
+        do {
+            System.out.println(menu);
+            option = scanner.nextLine();
+        } while (!option.contains("carr") && !option.contains("mot") && !option.contains("caminh"));
+
 
         if (option.toLowerCase().contains("carr")){
             url = URL_BASE + "carros/marcas";
